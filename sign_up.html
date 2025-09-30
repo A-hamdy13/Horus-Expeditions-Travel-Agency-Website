@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Horus Expeditions</title>
+    <style>
+        /* Additional styles for the form */
+        /* Paste these styles below the existing CSS styles */
+
+        .signup-form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+        .signup-form-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .signup-form-group {
+            margin-bottom: 20px;
+        }
+        .signup-form-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .signup-form-group input {
+            width: calc(100% - 20px); /* Subtract 20px for padding */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .signup-btn, .signin-btn, .home-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px; 
+            font-size: 18px;
+            text-align: center;
+            background-color: #ffa400;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .signup-btn:hover, .signin-btn:hover, .home-btn:hover {
+            background-color: #ff8500;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .main_bg{background-color: #100935;}
+    </style>
+</head>
+<body class="main_bg">
+
+    <!-- Main content -->
+    <div class="signup-form-container">
+        <h1>Sign Up</h1>
+        <form id="signup-form" method="post" action="signup.php">
+
+            <div class="signup-form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="signup-form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="signup-form-group">
+                <label for="newusername">Username</label>
+                <input type="text" id="newusername" name="newusername" required>
+            </div>
+            <div class="signup-form-group">
+                <label for="newpassword">Password</label>
+                <input type="password" id="newpassword" name="newpassword" required>
+            </div>
+            <button class="signup-btn" onclick="signup()">Sign Up</button>
+            <button class="signin-btn" onclick="redirectToSignIn()">Sign In</button>
+            <button class="home-btn" onclick="redirectToHome()">Return to Home</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Horus-Expeditions.com | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function signup() {
+            // Gather form data
+            var fullname = document.getElementById("fullname").value;
+            var email = document.getElementById("email").value;
+            var username = document.getElementById("newusername").value;
+            var password = document.getElementById("newpassword").value;
+
+            // Send form data to server using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "signup.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Handle successful response from server
+                    alert(xhr.responseText); // Display response message
+                }
+            };
+            xhr.send("fullname=" + fullname + "&email=" + email + "&username=" + username + "&password=" + password);
+
+            // Prevent form submission
+            return false;
+        }
+
+        function redirectToSignIn() {
+            // Redirect to the sign-in page
+            window.location.href = "login.html";
+        }
+
+        function redirectToHome() {
+            // Redirect to the home page
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

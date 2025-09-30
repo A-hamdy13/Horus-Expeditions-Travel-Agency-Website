@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Information - Horus Expeditions</title>
+    <style>
+        /* CSS styles */
+        /* Paste the CSS styles from the provided HTML page */
+
+        /* Additional styles for the form */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #100935;
+            color: #fff;
+        }
+        .logo-ribbon {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            vertical-align: middle;
+        }
+        .website-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .form-container {
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 20px;
+
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+      .form-group input {
+    width: calc(100% - 20px); /* Subtract 20px for padding */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+        .next-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #ffa400;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #ff8500;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo ribbon -->
+    <div class="logo-ribbon">
+        <img src="logo.jpeg" alt="Website Logo" class="logo">
+        <h1 class="website-name">Horus Expeditions</h1>
+    </div>
+
+    <!-- Main content -->
+    <div class="form-container">
+        <h1>Buyer Information</h1>
+        <form id="buyer-info-form">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Credit Card Holder Name</label>
+                <input type="text" id="address" name="address" >
+            </div>
+            <div class="form-group">
+                <label for="city">Credit Card Number</label>
+                <input type="text" id="city" name="city">
+            </div>
+            <div class="form-group">
+                <label for="country">Credit Card PIN</label>
+                <input type="text" id="country" name="country" >
+            </div>
+            <div class="form-group">
+                <label for="zip">Expiration Date</label>
+                <input type="text" id="zip" name="zip" placeholder="ZIP Code">
+            </div>
+            <button class="next-btn" onclick="redirectToNextPage()">Check Out</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Horus-Expeditions.com | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function redirectToNextPage() {
+            // Here you can add logic to validate the form fields if needed
+            // After validation, redirect to the next page
+            window.location.href = 'tst.html'; // Change to the desired next page
+        }
+    </script>
+</body>
+</html>

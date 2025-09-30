@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Ticket - Horus Expeditions</title>
+    <style>
+         /* CSS for logo ribbon */
+         .logo-ribbon {
+            background-color: #33333300;
+            padding: 10px; /* Adjust padding as needed */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3; /* Ensure the ribbon is above other content */
+        }
+        .logo {
+            width: 50px; /* Adjust width as needed */
+            height: auto; /* Keeps aspect ratio */
+            display: block;
+            float: left;
+        }
+        .website-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff; /* Adjust color as needed */
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px; /* Adjust margin as needed */
+            line-height: 50px; /* Vertically center */
+        }
+        .title {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 0;
+            position: relative; /* Ensure proper positioning of absolute elements */
+            background-image: url('wide.jpg');
+            background-size: cover;
+        }
+   
+        header {
+            background-color: #333333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative; /* Ensure the header stays above the overlay */
+            z-index: 2; /* Ensure the header is above the overlay */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        nav button {
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            padding: 15px 30px; /* Increased padding */
+            margin: 0 5px;
+            border-radius: 8px; /* Increased border radius */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 22px; /* Increased font size */
+        }
+        nav button:hover {
+            background-color: #555;
+        }
+        .hero {
+            background-image: url('wide.jpg');
+            height: 350px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            position: relative; /* Ensure the hero stays above the overlay */
+            z-index: 2; /* Ensure the hero is above the overlay */
+        }
+        /* Inline styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #100935;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .locations {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            
+        }
+        .location {
+            flex: 0 0 48%;
+            background-color: #ffa400;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .location h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .location p {
+            margin: 0;
+        }
+        .location button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .location button:hover {
+            background-color: #555;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- Black overlay -->
+   <div class="black-overlay"></div>
+
+   <!-- Logo ribbon -->
+   <div class="logo-ribbon">
+       <img src="logo.jpeg" alt="Website Logo" class="logo">
+       <h1 class="website-name">Horus Expeditions</h1>
+   </div>
+
+   <!-- Main content -->
+   <div style="margin-top: 0;"> <!-- Adjust margin-top to match logo ribbon height -->
+       <!-- Your content goes here -->
+   </div>
+    <header class="hero" class="title">
+        <h1>Discover the secrets of the Nile <br> with Horus Expeditions</h1>
+        <nav>
+            <button onclick="navigateTo('home.html')">Home</button>
+            <button onclick="navigateTo('destinations.html')">Destinations</button>
+            <button onclick="navigateTo('book_trip.html')">Book Trip</button>
+            <button onclick="navigateTo('contact_us.html')">Contact us</button>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Choose Your Destination</h1>
+        <div class="locations">
+            <div class="location">
+                <h2>Karnak Temple</h2>
+                <p>Explore the majestic Karnak Temple.</p>
+                <button onclick="navigateTo('intermediary.html')">Purchase Ticket</button>
+            </div>
+            <div class="location">
+                <h2>Luxor Temple</h2>
+                <p>Discover the hallowed grounds of the Luxor Temple.</p>
+                <button onclick="purchaseTicket('Luxor Temple')">Purchase Ticket</button>
+            </div>
+        </div>
+        <div class="locations">
+            <div class="location">
+                <h2>Abu Simbel Temple</h2>
+                <p>Visit the awe-inspiring Abu Simbel Temple.</p>
+                <button onclick="purchaseTicket('Abu Simbel Temple')">Purchase Ticket</button>
+            </div>
+            <div class="location">
+                <h2>Great Sphinx</h2>
+                <p>Behold the enigmatic gaze of the Great Sphinx.</p>
+                <button onclick="purchaseTicket('Great Sphinx')">Purchase Ticket</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Horus-Expeditions.com | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function purchaseTicket(destination) {
+            // Here you can add logic to redirect to a ticket purchase page for the selected destination
+            alert("Redirecting to purchase ticket for " + destination);
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

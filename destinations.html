@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Destinations</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #100935;
+                color: #fff;
+            }
+            .logo-ribbon {
+                padding: 10px;
+                /* Adjust padding as needed */
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 3;
+                /* Ensure the ribbon is above other content */
+            }
+            .logo {
+                width: 50px;
+                /* Adjust width as needed */
+                height: auto;
+                /* Keeps aspect ratio */
+                display: block;
+                float: left;
+            }
+            .website-name {
+                font-size: 24px;
+                font-weight: bold;
+                color: #fff;
+                /* Adjust color as needed */
+                display: inline-block;
+                vertical-align: middle;
+               margin-left: 10px;
+                /* Adjust margin as needed */
+                line-height: 50px;
+                /* Vertically center */
+            }
+            header {
+                background-color: #100935;
+                color: #fff;
+                padding: 10px 20px;
+                text-align: center;
+            }
+            nav {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            nav button {
+                color: #fff;
+                background-color: transparent;
+                border: none;
+                padding: 15px 30px;
+                margin: 0 5px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-size: 22px;
+            }
+            nav button:hover {
+                background-color: #555;
+            }
+            .hero {
+                background-image: url('wide2.jpg');
+                height: 350px;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #fff;
+                font-size: 24px;
+            }
+            footer {
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                padding: 20px 0;
+            }
+            figcaption {
+                font-style: italic;
+            }
+            .center {
+                text-align: center;
+            }
+            .current {
+                background-color: #100935;
+            }
+            .link-wrapper {
+                position: relative;
+                display: inline-block;
+                overflow: hidden;
+            }
+            .link-wrapper img {
+                width: 500px;
+                height: auto;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+            .link-wrapper .text-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: #ffa400;
+                color: white;
+                padding: 10px 0;
+                text-align: center;
+                box-sizing: border-box;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                font-size: 170%;
+            }
+            .link-wrapper:hover img {
+                transform: scale(1.1);
+            }
+            .link-wrapper:hover .text-overlay {
+                opacity: 1;
+            }
+            .image-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .image-container img {
+                margin: 5px;
+            }
+            .container {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                height: max-content;
+                border: 10px solid #ffa400;
+                box-sizing: border-box;
+                border-radius: 20px; 
+            }
+            .photo1 {
+                max-width: 100%;
+                height: auto;
+                margin-right: 20px;
+            }
+            .text {
+                flex: 1;
+                font-size: 22px;
+                line-height: 1.5;
+                /* background-color: #ffa400; */
+                padding: 10px;
+                text-align: center;
+
+            }
+            .hidden {
+                display: none;
+            }
+            .photo-gallery {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .photo {
+                flex: 1 1 calc(50% - 20px);
+                box-sizing: border-box;
+                align-items: center;
+            }
+            .photo img {
+                width: 100%;
+                height: auto;
+                width: 650px; /* Set the width */
+                height: 300px; /* Set the height */
+                object-fit: cover; /* This property ensures the aspect ratio is maintained */
+                right: 20px;
+                align-items: center;
+            }
+            .photo-caption {
+                text-align: center;
+                margin-top: 5px;
+                font-size: x-large;
+            }
+            .containerf {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 300px; /* Make sure the container takes the full height of the viewport */
+            }
+            .f {
+                max-width: 100%; /* Ensure the photo does not exceed the viewport width */
+                height: auto; /* Ensure the photo's aspect ratio is maintained */
+            }
+            .hhh3{
+                text-align: center;
+                font-size: 150%;
+            }
+            .buttonl {
+                background-color: #0a061e;
+                /* Orange background color */
+                color: #fff;
+                /* White text color */
+                border: none;
+                /* Remove button border */
+                padding: 20px 40px;
+                /* Padding inside the button */
+                font-size: 16px;
+                /* Button text size */
+                border-radius: 4px;
+                /* Rounded corners */
+                cursor: pointer;
+                /* Show pointer cursor on hover */
+                transition: background-color 0.3s ease;
+                /* Smooth transition on hover */
+            }
+
+            /* Hover effect for the button */
+            .buttonl:hover {
+                background-color: #e68d00;
+                /* Darker orange on hover */
+            }
+            .last{
+                text-align: center;
+                font-size: xx-large;
+            }
+            .hh2{
+                background-color: #0a061e;
+                box-sizing: border-box;
+                padding: 20px;
+                border: 2px solid #ffa400;
+                border-radius: 20px; 
+            }
+        </style>
+    </head>
+    <body>
+            <!-- Logo ribbon -->
+        <div class="logo-ribbon">
+            <img src="logo.jpg" alt="Website Logo" class="logo">
+            <h1 class="website-name">Horus Expeditions</h1>
+        </div>
+
+        <header class="hero">
+            <h1>Discover the secrets of the Nile <br> with Horus Expeditions</h1>
+            <nav>
+                <button onclick="navigateTo('home.php')">Home</button>
+                <button class="current">Destinations</button>
+                <button onclick="navigateTo('book_trip.html')">Book Trip</button>
+                <button onclick="navigateTo('contact.php')">Contact us</button>
+            </nav>
+        </header>
+<!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+       <h1 style="text-align: center;">WHERE TO GO</h1>
+       <h4 style="text-align: center;">Just pick your destination and start your Egypt experience now </h4>
+            <div class="image-container">
+            <a href="#NILE" class="link-wrapper">
+                <img src="Archaeological sites along the Nile.jpg" alt="Archaeological sites along the Nile">
+                <div class="text-overlay">Archaeological sites along the Nile</div>
+            </a>
+            <a href="#REDSEA" class="link-wrapper">
+                <img src="The Red Sea.jpg" alt="The Red Sea">
+                <div class="text-overlay">The Red Sea</div>
+            </a>
+
+            <a href="#MED" class="link-wrapper">
+                <img src="The Med.jpg" alt="The Med">
+                <div class="text-overlay">The Med</div>
+            </a>
+            <a href="#OASIS" class="link-wrapper">
+                <img src="Desert & Oasis.jpg" alt="Desert & Oasis">
+                <div class="text-overlay">Desert & Oasis</div>
+            </a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        <section>
+            <p id="NILE" class="hhh3">
+                <br>
+                <br>
+                <br>
+                Behold the majestic pyramids, guardians of Egypt's enigmatic past, their silent grandeur captivating hearts.<br>
+                Embark on a journey through Luxor's timeless legacy and Aswan's serene beauty, where history's whispers echo,<br>
+                beckoning travelers to uncover the secrets of the Nile's ancient shores.
+            </p>
+            <div class="image-container">
+                <h2 class="hh2">Cairo & Giza</h2>
+                <div class="container">
+                    <a href="#cairoo" class="link-wrapper show-more" data-target="cairoo">
+                        <img src="cairo1.jpg" alt="Cairo & Giza" class="photo1">
+                        <div class="text-overlay">Cairo</div>
+                    </a>
+                    <p class="text">
+                        Cairo, Egypt's capital, is a bustling metropolis known for its rich history,
+                        vibrant culture, and landmarks like the Egyptian Museum. Giza, adjacent to Cairo,
+                        is famed for the iconic Pyramids of Giza and the Great Sphinx, key symbols of
+                        ancient Egyptian civilization.
+                    </p>
+                </div>
+                <div id="cairoo" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="cairo1.jpg" alt="The Pyramids">
+                            <div class="photo-caption">The Pyramids</div>
+                        </div>
+                        <div class="photo">
+                            <img src="cairo2.jpg" alt="Cairo Tower">
+                            <div class="photo-caption">Cairo Tower</div>
+                        </div>
+                        <div class="photo">
+                            <img src="cairo3.webp" alt="Khan el-Khalili">
+                            <div class="photo-caption">Khan el-Khalili</div>
+                        </div>
+                        <div class="photo">
+                            <img src="cairo4.webp" alt="Baron Empain Palace">
+                            <div class="photo-caption">Baron Empain Palace</div>
+                        </div>
+                        <div class="photo">
+                            <div class="containerf">
+                                <img src="cairo5.webp" alt="Fortress of Babylon" class="f">
+                            </div>
+                            <div class="photo-caption">Fortress of Babylon</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2 class="hh2">Luxor</h2>
+                <div class="container">
+                    <a href="#luxorr" class="link-wrapper show-more" data-target="luxorr">
+                        <img src="luxor1.jpg" alt="Luxor" class="photo1">
+                        <div class="text-overlay">Luxor</div>
+                    </a>
+                    <p class="text">
+                        Luxor, once ancient Thebes, boasts legendary sites like Karnak and Luxor Temples
+                        on its East Bank, and the Valley of the Kings and Queens on its West Bank, making
+                        it a premier destination for archaeological exploration and cultural immersion.
+                        Today, it thrives on tourism, offering a captivating blend of ancient wonders 
+                        and modern hospitality.
+                    </p>
+                </div>
+                <div id="luxorr" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="luxor1.jpg" alt="Valley of the Kings">
+                            <div class="photo-caption">Valley of the Kings</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor2.webp" alt="Valley of the Queens">
+                            <div class="photo-caption">Valley of the Queens</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor3.jpg" alt="Karnak Temple">
+                            <div class="photo-caption">Karnak Temple</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor4.webp" alt="Hatshepsut Temple">
+                            <div class="photo-caption">Hatshepsut Temple</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor5.jpg" alt="Luxor flying balloon and hot air balloons">
+                            <div class="photo-caption">Luxor flying balloon and hot air balloons</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor6.jpg" alt="Mummification Museum">
+                            <div class="photo-caption">Mummification Museum</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor7.jpg" alt="International Park in Luxor">
+                            <div class="photo-caption">International Park in Luxor</div>
+                        </div>
+                        <div class="photo">
+                            <img src="luxor8.jpg" alt="Deir el-Medina">
+                            <div class="photo-caption">Deir el-Medina</div>
+                        </div>
+                        <div class="photo">
+                            <div class="containerf">
+                                <img src="luxor9.jpg" alt="Deir el-Bahri Temple" class="f">
+                            </div>                        
+                            <div class="photo-caption">Deir el-Bahri Temple</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2 class="hh2">Aswan</h2>
+                <div class="container">
+                    <a href="#aswann" class="link-wrapper show-more" data-target="aswann">
+                        <img src="aswan1.webp" alt="Aswan" class="photo1">
+                        <div class="text-overlay">Aswan</div>
+                    </a>
+                    <p class="text">
+                        Aswan, a serene city in southern Egypt, is renowned for the Aswan High Dam, Philae Temple,
+                        and its picturesque Nile views, offering a tranquil retreat and rich historical heritage. It also 
+                        serves as a gateway to exploring Nubian culture and the ancient temples of Abu Simbel.
+                    </p>
+                </div>
+                <div id="aswann" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="aswan1.webp" alt="Philae Temple">
+                            <div class="photo-caption">Philae Temple</div>
+                        </div>
+                        <div class="photo">
+                            <img src="aswan2.jpg" alt="Abu Simbel Temple">
+                            <div class="photo-caption">Abu Simbel Temple</div>
+                        </div>
+                        <div class="photo">
+                            <img src="aswan3.webp" alt="The plants island">
+                            <div class="photo-caption">The plants island</div>
+                        </div>
+                        <div class="photo">
+                            <img src="aswan4.webp" alt="Elephantine Island">
+                            <div class="photo-caption">Elephantine Island</div>
+                        </div>
+                        <div class="photo">
+                            <div class="containerf">
+                                <img src="aswan5.webp" alt="Nubian village" class="f">
+                            </div>                        
+                            <div class="photo-caption">Nubian village</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        <section>
+            <p id="REDSEA" class="hhh3">
+                <br>
+                <br>
+                <br>
+                Dive into the vibrant underwater world of the Red Sea, teeming with colorful coral reefs<br>
+                and exotic marine life.Experience the laid-back charm of Dahab, a coastal town on the Red Sea,<br>
+                renowned for its relaxed atmosphere and world-class diving spots.
+            </p>
+            <div class="image-container">
+                <h2 class="hh2">Sharm al-Sheikh</h2>
+                <div class="container">
+                    <a href="#sharmm" class="link-wrapper show-more" data-target="sharmm">
+                        <img src="sharm1.webp" alt="Sharm al-Sheikh" class="photo1">
+                        <div class="text-overlay">Sharm al-Sheikh</div>
+                    </a>
+                    <p class="text">
+                        Sharm El-Sheikh, a popular resort town on Egypt's Red Sea coast, is celebrated for its 
+                        stunning coral reefs, vibrant marine life, and luxurious resorts, making it a premier 
+                        destination for diving and beach vacations. It's also known for hosting international peace
+                        conferences and summits.
+                    </p>
+                </div>
+                <div id="sharmm" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="sharm1.webp" alt="Tiran Island">
+                            <div class="photo-caption">Tiran Island</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm2.webp" alt="Ras Mohammed Reserve">
+                            <div class="photo-caption">Ras Mohammed Reserve</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm3.webp" alt="ُEl-salam Park">
+                            <div class="photo-caption">El-salam Park</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm4.webp" alt="Nabq Reserve">
+                            <div class="photo-caption">Nabq Reserve</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm5.webp" alt="El-gharqana">
+                            <div class="photo-caption">El-gharqana</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm6.jpg" alt="Ne'ema bay">
+                            <div class="photo-caption">Ne'ema bay</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm7.webp" alt="Tutankhamun Museum">
+                            <div class="photo-caption">Tutankhamun Museum</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm8.webp" alt="Umm al-Sid plateau">
+                            <div class="photo-caption">Umm al-Sid plateau</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm9.webp" alt="Hollywood Park">
+                            <div class="photo-caption">Hollywood Park</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm10.webp" alt="Soho Square Park">
+                            <div class="photo-caption">Soho Square Park</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm11.webp" alt="Al-Sahaba Mosque">
+                            <div class="photo-caption">Al-Sahaba Mosque</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sharm12.webp" alt=" The Colored Valley">
+                            <div class="photo-caption">The Colored Valley</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2 class="hh2">Dahab</h2>
+                <div class="container">
+                    <a href="#dahabb" class="link-wrapper show-more" data-target="dahabb">
+                        <img src="dahab1.jpg" alt="Dahab" class="photo1">
+                        <div class="text-overlay">Dahab</div>
+                    </a>
+                    <p class="text">
+                        Dahab, a laid-back town on Egypt's Sinai Peninsula, is famed for its stunning 
+                        diving spots like the Blue Hole and relaxed bohemian atmosphere, attracting 
+                        divers and backpackers. Its beautiful beaches and vibrant local culture make 
+                        it a favorite destination for adventure and leisure travelers alike.
+                    </p>
+                </div>
+                <div id="dahabb" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="dahab1.jpg" alt="Blue Hole">
+                            <div class="photo-caption">Blue Hole</div>
+                        </div>
+                        <div class="photo">
+                            <img src="dahab2.jpg" alt="The Coral Reefs">
+                            <div class="photo-caption">The Coral Reefs</div>
+                        </div>
+                        <div class="photo">
+                            <img src="dahab3.jpg" alt="The Blue Agon">
+                            <div class="photo-caption">The Blue Agon</div>
+                        </div>
+                        <div class="photo">
+                            <img src="dahab4.jpg" alt="Ein Kid">
+                            <div class="photo-caption">Ein Kid</div>
+                        </div>
+                        <div class="photo">
+                            <div class="containerf">
+                                <img src="dahab5.jpg" alt="Blue Besch Club Stables" class="f">
+                            </div>                
+                            <div class="photo-caption">Blue Besch Club Stables</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2 class="hh2">Hurghada</h2>
+                <div class="container">
+                    <a href="#hurghadaa" class="link-wrapper show-more" data-target="hurghadaa">
+                        <img src="hurgada1.jpg" alt="Hurghada" class="photo1">
+                        <div class="text-overlay">Hurghada</div>
+                    </a>
+                    <p class="text">
+                        Hurghada, a bustling resort town on Egypt's Red Sea coast, is renowned for 
+                        its crystal-clear waters, extensive coral reefs, and vibrant nightlife, making 
+                        it a top destination for scuba diving and beach holidays. Its modern amenities 
+                        and numerous resorts cater to both luxury seekers and adventure enthusiasts.
+                    </p>
+                </div>
+                <div id="hurghadaa" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="hurgada1.jpg" alt="Gifrun Island">
+                            <div class="photo-caption">Gifrun Island</div>
+                        </div>
+                        <div class="photo">
+                            <img src="hurgada2.jpg" alt="Omo Gamaar">
+                            <div class="photo-caption">Omo Gamaar</div>
+                        </div>
+                        <div class="photo">
+                            <img src="hurgada3.jpg" alt="Jungle Aqua Park">
+                            <div class="photo-caption">Jungle Aqua Park</div>
+                        </div>
+                        <div class="photo">
+                            <img src="hurgada4.jpg" alt="Sliders Aqua Park">
+                            <div class="photo-caption">Sliders Aqua Park</div>
+                        </div>
+                        <div class="photo">
+                            <img src="hurgada5.jpg" alt="Sand Island">
+                            <div class="photo-caption">Sand Island</div>
+                        </div>
+                        <div class="photo">
+                            <img src="hurgada6.jpg" alt="Selkhet Papyrus hurghada">
+                            <div class="photo-caption">Selkhet Papyrus hurghada</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <h2 class="hh2">Al-Ain Al-Sukhna</h2>
+                <div class="container">
+                    <a href="#sokhnaa" class="link-wrapper show-more" data-target="sokhnaa">
+                        <img src="sokhna.webp" alt="Al-Ain Al-Sukhna" class="photo1">
+                        <div class="text-overlay">Al-Ain Al-Sukhna</div>
+                    </a>
+                    <p class="text">
+                        Al-Ain Al-Sukhna, located along the Gulf of Suez in Egypt, is known for its 
+                        pristine beaches, therapeutic hot springs, and close proximity to Cairo, 
+                        making it a popular weekend getaway for relaxation and water sports. The area 
+                        also features luxury resorts and excellent opportunities for diving and fishing.
+                    </p>
+                </div>
+                <div id="sokhnaa" class="hidden">
+                    <div class="photo-gallery">
+                        <div class="photo">
+                            <img src="sokhna1.jpg" alt="Mount Galala">
+                            <div class="photo-caption">Mount Galala</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sokhna2.jpg" alt="Porto Sokhna">
+                            <div class="photo-caption">Porto Sokhna</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sokhna3.jpg" alt="Sandy beaches">
+                            <div class="photo-caption">Sandy beaches</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sokhna4.webp" alt="Monastery of Saint Anthony">
+                            <div class="photo-caption">Monastery of Saint Anthony</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sokhna5.webp" alt="Stella di mar jove">
+                            <div class="photo-caption">Stella di mar jove</div>
+                        </div>
+                        <div class="photo">
+                            <img src="sokhna6.jpg" alt="EChairlifts">
+                            <div class="photo-caption">Chairlifts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <hr>
+<!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        <section>
+        <p id="MED" class="hhh3">
+            <br>
+            <br>
+                <br>
+            Marsa Matrouh and Egypt's North Coast boast pristine white-sand beaches and crystal-clear 
+            Mediterranean waters,<br> perfect for an idyllic summer escape. Alexandria, a historic port 
+            city, enchants visitors with its cultural<br> treasures like the Bibliotheca Alexandrina and 
+            Qaitbay Citadel, complemented by a lively seaside ambiance.
+        </p>
+        <div class="image-container">
+            <h2 class="hh2">Alexandria</h2>
+            <div class="container">
+                <a href="#alexx" class="link-wrapper show-more" data-target="alexx">
+                    <img src="alex1.jpg" alt="Alexandria" class="photo1">
+                    <div class="text-overlay">Alexandria</div>
+                </a>
+                <p class="text">
+                    Alexandria, Egypt's historic port city, enchants with its blend of ancient 
+                    wonders like the Bibliotheca Alexandrina and Qaitbay Citadel, alongside a 
+                    vibrant waterfront filled with cafes and cultural venues. This coastal gem 
+                    offers a perfect mix of rich heritage and modern Mediterranean charm.
+                </p>
+            </div>
+            <div id="alexx" class="hidden">
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="alex1.jpg" alt="Alexandria Library">
+                        <div class="photo-caption">Alexandria Library</div>
+                    </div>
+                    <div class="photo">
+                        <img src="alex2.jpg" alt="Bey Citadel">
+                        <div class="photo-caption">Bey Citadel</div>
+                    </div>
+                    <div class="photo">
+                        <img src="alex3.jpg" alt="Corniche">
+                        <div class="photo-caption">Corniche</div>
+                    </div>
+                    <div class="photo">
+                        <img src="alex5.jpg" alt="King Farouk Palace">
+                        <div class="photo-caption">King Farouk Palace</div>
+                    </div>
+                    <div class="photo">
+                        <img src="alex7.jpg" alt="St. Catherine's Cathedral">
+                        <div class="photo-caption">St. Catherine's Cathedral</div>
+                    </div>
+                    <div class="photo">
+                        <img src="alex4.jpg" alt="Montaza Palace">
+                        <div class="photo-caption">Montaza Palace</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="hh2">Marsa Matrouh</h2>
+            <div class="container">
+                <a href="#matrouhh" class="link-wrapper show-more" data-target="matrouhh">
+                    <img src="matrooh1.webp" alt="Marsa Matrouh" class="photo1">
+                    <div class="text-overlay">Marsa Matrouh</div>
+                </a>
+                <p class="text">
+                    Marsa Matrouh, a picturesque coastal city on Egypt's Mediterranean shore, 
+                    is renowned for its pristine white-sand beaches and crystal-clear turquoise 
+                    waters, offering a tranquil escape for relaxation and water activities. Its 
+                    natural beauty and serene ambiance make it a coveted summer destination.
+                </p>
+            </div>
+            <div id="matrouhh" class="hidden">
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="matrooh1.webp" alt="Ageeba beach">
+                        <div class="photo-caption">Ageeba beach</div>
+                    </div>
+                    <div class="photo">
+                        <img src="matrooh2.jpg" alt="Almaza Bay">
+                        <div class="photo-caption">Almaza Bay</div>
+                    </div>
+                    <div class="photo">
+                        <div class="containerf">
+                            <img src="matrooh3.jpg" alt="Salt Cave Salman" class="f">
+                        </div>                
+                        <div class="photo-caption">Salt Cave Salman</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="hh2">North Coast & Al-Alamein</h2>
+            <div class="container">
+                <a href="#alameen" class="link-wrapper show-more" data-target="alameen">
+                    <img src="sahel1.jpg" alt="North Coast & Al-Alamein" class="photo1">
+                    <div class="text-overlay">North Coast & Al-Alamein</div>
+                </a>
+                <p class="text">
+                    Egypt's North Coast, including Al-Alamein, features stunning Mediterranean beaches 
+                    with azure waters and upscale resorts, making it a premier destination for 
+                    luxury and leisure. Al-Alamein is also historically significant, known for its 
+                    World War II memorials and museums, blending relaxation with rich history.
+                </p>
+            </div>
+            <div id="alameen" class="hidden">
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="sahel1.jpg" alt="Alamein New City">
+                        <div class="photo-caption">Alamein New City</div>
+                    </div>
+                    <div class="photo">
+                        <img src="sahel2.jpg" alt="Marassi">
+                        <div class="photo-caption">Marassi</div>
+                    </div>
+                    <div class="photo">
+                        <img src="sahel3.jpg" alt="Sedi Abd-Elruhman">
+                        <div class="photo-caption">Sedi Abd-Elruhman</div>
+                    </div>
+                    <div class="photo">
+                        <img src="sahel4.jpg" alt="Amwaj">
+                        <div class="photo-caption">Amwaj</div>
+                    </div>
+                    <div class="photo">
+                        <img src="sahel5.jpg" alt="Marina North Coast">
+                        <div class="photo-caption">Marina North Coast</div>
+                    </div>
+                    <div class="photo">
+                        <img src="sahel6.webp" alt="Marseilia aqua park">
+                        <div class="photo-caption">Marseilia aqua park</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <hr>
+<!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        <section>
+        <p id="OASIS" class="hhh3">
+            <br>
+            <br>
+            <br>
+            Discover the serene beauty of Siwa Oasis, nestled amidst desert dunes, offering hot 
+            springs and traditional Berber hospitality.Embark on an adventure in the White Desert, 
+            where surreal landscapes of chalk rock formations create an otherworldly atmosphere 
+            under the desert sky. Explore the lush greenery and ancient ruins of Fayoum Oasis, 
+            offering a peaceful retreat from the hustle and bustle of city life.
+        </p>
+        <div class="image-container">
+            <h2 class="hh2">Siwa Oasis</h2>
+            <div class="container">
+                <a href="#siwaa" class="link-wrapper show-more" data-target="siwaa">
+                    <img src="siwa salt lakes.jpg" alt="Siwa Oasis" class="photo1">
+                    <div class="text-overlay">Siwa Oasis</div>
+                </a>
+                <p class="text">
+                    Siwa Oasis, nestled in Egypt's Western Desert, offers a tranquil retreat 
+                    with its lush date palm groves, natural springs, and ancient ruins, inviting 
+                    travelers to unwind amidst breathtaking desert landscapes. Its unique Berber 
+                    culture, coupled with therapeutic hot springs and salt lakes, creates a 
+                    magical haven for relaxation and exploration.
+                </p>
+            </div>
+            <div id="siwaa" class="hidden">
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="siwa Bilad Ar Rum.jpg" alt="The Pyramids">
+                        <div class="photo-caption">The Pyramids</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa bir wahed.jpg" alt="Cairo Tower">
+                        <div class="photo-caption">Cairo Tower</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa Cleopatra’s Spring.jpg" alt="Khan el-Khalili">
+                        <div class="photo-caption">Khan el-Khalili</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa fortress of shali.jpg" alt="Baron Empain Palace">
+                        <div class="photo-caption">Baron Empain Palace</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa gabal elmawta.jpg" alt="Fortress of Babylon">
+                        <div class="photo-caption">Fortress of Babylon</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa House of Siwa Museum.jpg" alt="Fortress of Babylon">
+                        <div class="photo-caption">Fortress of Babylon</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa salt lakes.jpg" alt="Fortress of Babylon">
+                        <div class="photo-caption">Fortress of Babylon</div>
+                    </div>
+                    <div class="photo">
+                        <img src="siwa Temple of the Oracle.jpg" alt="Fortress of Babylon">
+                        <div class="photo-caption">Fortress of Babylon</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="hh2">El-Fayoum</h2>
+            <div class="container">
+                <a href="#fayoumm" class="link-wrapper show-more" data-target="fayoumm">
+                    <img src="fayoum1.jpg" alt="El-Fayoum" class="photo1">
+                    <div class="text-overlay">El-Fayoum</div>
+                </a>
+                <p class="text">
+                    El-Fayoum, an oasis located southwest of Cairo, captivates with its 
+                    serene lakes, lush farmlands, and archaeological sites like the Pyramid of 
+                    Hawara, offering a serene escape and a glimpse into Egypt's ancient past. 
+                    Its scenic beauty and rich history make it a hidden gem awaiting discovery.
+                </p>
+            </div>
+            <div id="fayoumm" class="hidden">
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="fayoum1.jpg" alt="Mount Hawara">
+                        <div class="photo-caption">Mount Hawara</div>
+                    </div>
+                    <div class="photo">
+                        <img src="fayoum2.jpg" alt="Tunisia village">
+                        <div class="photo-caption">Tunisia village</div>
+                    </div>
+                    <div class="photo">
+                        <img src="fayoum3.jpg" alt="Wadi Al-Hitan Reserve">
+                        <div class="photo-caption">Wadi Al-Hitan Reserve</div>
+                    </div>
+                    <div class="photo">
+                        <img src="fayoum4.jpg" alt="Wadi El Rayyan Waterfalls">
+                        <div class="photo-caption">Wadi El Rayyan Waterfalls</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="hh2">ST Cathrine</h2>
+            <div class="container">
+                <a href="#stt" class="link-wrapper show-more" data-target="stt">
+                    <img src="st1.webp" alt="ST Cathrine" class="photo1">
+                    <div class="text-overlay">ST Cathrine</div>
+                </a>
+                <p class="text">
+                    St. Catherine, nestled at the foot of Mount Sinai, is revered for its historic
+                    monastery, one of the oldest working Christian monasteries in the world, and 
+                    its rugged natural beauty, attracting pilgrims and adventurers alike to explore 
+                    its sacred sites and stunning landscapes. This remote sanctuary offers a spiritual 
+                    retreat amidst majestic mountains and ancient traditions.
+                </p>
+            </div>
+            <div id="stt" class="hidden">
+                <div class="photo-gallery">
+                    <div class="photo">
+                        <img src="st1.webp" alt="Mount Saint Catherine">
+                        <div class="photo-caption">Mount Saint Catherine</div>
+                    </div>
+                    <div class="photo">
+                        <img src="st2.jpg" alt="St. Catherine's Monastery">
+                        <div class="photo-caption">St. Catherine's Monastery</div>
+                    </div>
+                    <div class="photo">
+                        <img src="st3.jpg" alt="Mount Moses">
+                        <div class="photo-caption">Mount Moses</div>
+                    </div>
+                    <div class="photo">
+                        <img src="st4.jpg" alt="Tombs of the Prophet Aaron">
+                        <div class="photo-caption">Tombs of the Prophet Aaron</div>
+                    </div>
+                    <div class="photo">
+                        <div class="containerf">
+                            <img src="st5.webp" alt="Bidoun Camp (Sheikh Musa Bidoun)" class="f">
+                        </div>                
+                        <div class="photo-caption">Bidoun Camp (Sheikh Musa Bidoun)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+<!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        <p class="last">if you want to pick a hotel wit your trip go check these hotels : <br>
+            <button class="buttonl" onclick="window.location.href = 'hotels.html';">Hotels</button>
+        </p>
+        <section class="center">
+            <h2>About Us</h2>
+
+            <p>Discover Horus Expeditions: Your passport to extraordinary adventures. With personalized itineraries and a commitment to excellence, we ensure every journey is a remarkable experience.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Horus-Expeditions.com | All Rights Reserved</p>
+        </footer>
+        <script>
+            document.querySelectorAll('.show-more').forEach(button => {
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const targetId = this.getAttribute('data-target');
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement.classList.contains('hidden')) {
+                            targetElement.classList.remove('hidden');
+                        } else {
+                            targetElement.classList.add('hidden');
+                        }
+                    });
+                });
+    
+                function navigateTo(page) {
+                    window.location.href = page;
+                }
+        </script>
+    </body>
+</html>

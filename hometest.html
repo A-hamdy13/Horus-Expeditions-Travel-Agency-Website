@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horus Expeditions</title>
+    <style>
+       
+           /* CSS for logo ribbon */
+           .logo-ribbon {
+            background-color: #333;
+            padding: 10px; /* Adjust padding as needed */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3; /* Ensure the ribbon is above other content */
+        }
+        .logo {
+            width: 50px; /* Adjust width as needed */
+            height: auto; /* Keeps aspect ratio */
+            display: block;
+            float: left;
+        }
+        .website-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff; /* Adjust color as needed */
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px; /* Adjust margin as needed */
+            line-height: 50px; /* Vertically center */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 0;
+            position: relative; /* Ensure proper positioning of absolute elements */
+            background-image: url('wide.jpg');
+            background-size: cover;
+        }
+   
+        header {
+            background-color: #333333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative; /* Ensure the header stays above the overlay */
+            z-index: 2; /* Ensure the header is above the overlay */
+        }
+        /* nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: #333;
+        } */
+        /* nav button {
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            padding: 15px 30px;
+            margin: 0 5px;
+            border-radius: 8px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 22px;
+        } */
+        .nav-container {
+    display: inline-block;
+    border-radius: 8px; /* Border radius */
+    overflow: hidden; /* Ensures that the border-radius works */
+    background-color: #ffa400; /* Example background color for the container */
+}
+.nav-button {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    padding: 15px 30px; /* Increased padding */
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 22px; /* Increased font size */
+    display: inline-block; /* Ensure buttons appear inline */
+}
+        nav button:hover {
+            background-color: #555;
+        }
+        .hero {
+            background-image: url('wide.jpg');
+            height: 350px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            position: relative; /* Ensure the hero stays above the overlay */
+            z-index: 2; /* Ensure the hero is above the overlay */
+        }
+        footer {
+            background-color: #100935;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .image-container {
+            position: relative; /* Required for absolute positioning of controls */
+            display: flex;
+            justify-content: center; /* Center the carousel */
+            align-items: center; /* Center vertically */
+            flex-wrap: wrap;
+        }
+        .controls {
+            position: absolute;
+            top: 50%; /* Align the controls vertically in the middle */
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Distribute space between buttons */
+            z-index: 3; /* Ensure the controls are above the overlay */
+        }
+        .controls button {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .controls button:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+        }
+        figure {
+            flex: 0 0 25%; /* Adjust the width of each figure */
+            margin: 10px;
+            text-align: center;
+            display: none; /* Hide all figures initially */
+            position: relative; /* Required for positioning of arrow buttons */
+        }
+        img {
+            width: 100%; /* Make all images fill their containers */
+            height: auto; /* Maintain aspect ratio */
+            width: 1000px; /* Set maximum width */
+            height: 500px; /* Set maximum height */
+        }
+        figcaption {
+            font-style: italic;
+        }
+        .prev, .next {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .prev {
+            left: 300px;
+        }
+        .next {
+            right: 300px;
+        }
+        /* #0e034e  #74cbe3;*/
+        .tp {
+            background-color: #100935;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .center {
+            text-align: center;
+            color: #fff;
+
+        }
+        .carousel {
+            
+            background-color: #ffa400; 
+            padding: 20px; /* Add padding to provide some space around the carousel content */
+            padding-left : 80px;
+            padding-right : 80px;
+        }
+        .carousel-caption {
+            max-width: 700px; /* Set the maximum width of the carousel caption */
+            margin: 0 auto; /* Center the carousel caption */
+            padding: 20px; /* Add padding to provide some space around the carousel caption */
+            color: #fff; /* Set text color */
+            text-align: center; /* Center align text */
+        }
+        .current {
+            background-color:#100935;
+
+        }
+        .main_bg {
+            /* background-color: rgba(173, 173, 173, 0.982); (228, 189, 61, 0.982); #100935;*/
+        
+        background-color:#100935;
+
+        }
+        .overlay-button {
+    position: absolute;
+    z-index: 9999;
+    padding: 10px 20px;
+    background-color: #100935; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+  }
+  #top-right-button {
+    top: 20px;
+    right: 20px;
+    background-color: #ffa400;
+  }
+
+  #bottom-right-button {
+    top: 70px;
+    right: 20px;
+    background-color: #ffa400;
+  }
+  .bg{
+ 
+  border-radius: 25px;
+  background: #ffa400;
+  padding: 20px;
+  width: 600px;
+  height: 150px;
+}
+  
+    </style>
+</head>
+<body>
+     <!-- Top right button -->
+  <button id="top-right-button" class="overlay-button" onclick="navigateTo('login.html')">Login</button>
+  
+  <!-- Bottom right button -->
+  <button id="bottom-right-button" class="overlay-button" onclick="navigateTo('sign_up.html')">Sign Up</button>
+   <!-- Black overlay -->
+   <div class="black-overlay"></div>
+
+   <!-- Logo ribbon -->
+   <div class="logo-ribbon">
+       <img src="logo.jpeg" alt="Website Logo" class="logo">
+       <h1 class="website-name">Horus Expeditions</h1>
+   </div>
+
+   <!-- Main content -->
+   <div style="margin-top: 0;"> <!-- Adjust margin-top to match logo ribbon height -->
+       <!-- Your content goes here -->
+   </div>
+    <header class="hero">
+        <h1 class="bg">Discover the secrets of the Nile <br> with Horus Expeditions</h1>
+        <br>
+        <nav class="nav-container">
+            <button class="nav-button">Home</button>
+            <button class=' nav-button' onclick="navigateTo('destinations.html')">Destinations</button>
+            <button class=' nav-button' onclick="navigateTo('book_trip.html')">Book Trip</button>
+            <button class=' nav-button' onclick="navigateTo('contact_us.html')">Contact us</button>
+        </nav>
+    </header>
+    
+    <div class="tp">
+        <h2>Explore the mystical lands of Egypt with Us</h2>
+        <p>Find your perfect travel destination and embark on unforgettable journeys.</p>
+    </div>
+
+    <main class="main_bg">
+        <section>
+            <div class="center">Discover our most sought-after travel destinations and plan your next adventure</div>
+            
+            <div class="image-container">
+                <!-- Carousel container -->
+                <div id="carousel" class="carousel">
+                    <figure>
+                        <img src="karnak-temple.jpg" alt="Karnak Temple">
+                        <figcaption class="carousel-caption"></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="the_luxor_temple.jpg" alt="Luxor Temple">
+                        <figcaption class="carousel-caption"></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="abu_simbel.jpg" alt="Abu Simbel Temple">
+                        <figcaption class="carousel-caption"></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="sphinx.jpg" alt="Great Sphinx">
+                        <figcaption class="carousel-caption"></figcaption>
+                    </figure>
+                </div>
+                <!-- Add left and right arrow buttons -->
+                <div class="controls">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <section class="center">
+            <h2>About Us</h2>
+
+            <div>Discover Horus Expeditions: Your passport to extraordinary adventures. With personalized itineraries and a commitment to excellence, we ensure every journey is a remarkable experience.</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Horus-Expeditions.com | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // JavaScript for carousel functionality
+        const carousel = document.getElementById('carousel');
+        const captions = [
+            'Embark on a journey through time to the majestic Karnak Temple, where colossal pillars rise like ancient sentinels guarding the secrets of the gods.',
+            'Enter the hallowed grounds of the Luxor Temple, where shadows dance among the towering statues of pharaohs and gods.',
+            'Discover the awe-inspiring Abu Simbel Temple, carved into the heart of the Nubian mountains, a testament to the grandeur and power of ancient Egypt.',
+            'Behold the enigmatic gaze of the Great Sphinx, guardian of the ancient pyramids, shrouded in timeless mystery and intrigue.'
+        ];
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const slides = carousel.querySelectorAll('figure');
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.style.display = 'block';
+                    slide.querySelector('.carousel-caption').textContent = captions[index]; // Update caption
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + captions.length) % captions.length;
+            showSlide(currentIndex);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % captions.length;
+            showSlide(currentIndex);
+        }
+
+        // Initial setup
+        showSlide(currentIndex);
+
+        // Automatic carousel
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % captions.length;
+            showSlide(currentIndex);
+        }, 5000); // Change slide every 5 seconds
+    </script>
+</body>
+</html>
